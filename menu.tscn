@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct8g7grtmmqt4"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_6cmxu"]
+[ext_resource type="Texture2D" uid="uid://ch0gprprcm6i7" path="res://images/backgrounds/Green.png" id="2_sdg8m"]
+[ext_resource type="Texture2D" uid="uid://ds6pxowc1lsmb" path="res://images/Cool Text - FUNGUS AMONGUS 468347089224739.png" id="2_ydfjn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_62ayj"]
+texture = ExtResource("2_sdg8m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0fquw"]
+texture = ExtResource("2_ydfjn")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6cmxu")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_62ayj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.458333
+anchor_top = 0.422068
+anchor_right = 0.541667
+anchor_bottom = 0.577932
+offset_left = -1.14441e-05
+offset_right = -2.28882e-05
+offset_bottom = -1.33514e-05
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="NewGame" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+
+[node name="LoadGame" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Load Game"
+
+[node name="ExitGame" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit Game"
+
+[node name="Banner" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.164931
+anchor_top = 0.0524691
+anchor_right = 0.831597
+anchor_bottom = 0.265432
+offset_right = 1.52588e-05
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0fquw")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LoadGame" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitGame" to="." method="_on_exit_game_pressed"]

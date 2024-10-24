@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8ll6hemgwhu0"
-path="res://.godot/imported/enoki_mushroom.png-92563aeff0c3588d53a02e7767fcc611.ctex"
+path="res://.godot/imported/enoki_mushroom.png-27e798c9179855f610a64772c44c5be0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/enoki_mushroom.png"
-dest_files=["res://.godot/imported/enoki_mushroom.png-92563aeff0c3588d53a02e7767fcc611.ctex"]
+source_file="res://images/characters/enoki_mushroom.png"
+dest_files=["res://.godot/imported/enoki_mushroom.png-27e798c9179855f610a64772c44c5be0.ctex"]
 
 [params]
 

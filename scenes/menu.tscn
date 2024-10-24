@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://ct8g7grtmmqt4"]
 
-[ext_resource type="Script" path="res://Menu.gd" id="1_6cmxu"]
-[ext_resource type="Texture2D" uid="uid://ch0gprprcm6i7" path="res://images/backgrounds/Green.png" id="2_sdg8m"]
-[ext_resource type="Texture2D" uid="uid://ds6pxowc1lsmb" path="res://images/Cool Text - FUNGUS AMONGUS 468347089224739.png" id="2_ydfjn"]
+[ext_resource type="Script" path="res://scripts/Menu.gd" id="1_8xg7r"]
+[ext_resource type="Texture2D" uid="uid://ch0gprprcm6i7" path="res://images/backgrounds/Green.png" id="2_wh32e"]
+[ext_resource type="Texture2D" uid="uid://ds6pxowc1lsmb" path="res://images/Cool Text - FUNGUS AMONGUS 468347089224739.png" id="3_ttnni"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_62ayj"]
-texture = ExtResource("2_sdg8m")
+texture = ExtResource("2_wh32e")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0fquw"]
-texture = ExtResource("2_ydfjn")
+texture = ExtResource("3_ttnni")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -17,7 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_6cmxu")
+script = ExtResource("1_8xg7r")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 1

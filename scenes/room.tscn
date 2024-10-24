@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://dj3dtknbfgnmb"]
+
+[ext_resource type="Texture2D" uid="uid://bltpldpk05wb6" path="res://images/backgrounds/room.png" id="1_2g37r"]
+[ext_resource type="Script" path="res://scripts/room.gd" id="1_c1wov"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxy4o"]
+size = Vector2(40.8889, 36.878)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2f4t2"]
+size = Vector2(58.6667, 112.39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ihn4"]
+size = Vector2(83.5555, 73.2194)
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1_c1wov")
+
+[node name="Panel" type="Sprite2D" parent="."]
+position = Vector2(576, 328)
+scale = Vector2(4.5, 4.55556)
+texture = ExtResource("1_2g37r")
+
+[node name="doorcontrol" type="Control" parent="Panel"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -44.0
+offset_top = -60.0
+offset_right = 14.0
+offset_bottom = 51.0
+tooltip_text = "Click here to go for a walk
+"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+
+[node name="terrariumcontrol" type="Control" parent="Panel"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 36.0
+offset_top = -60.0
+offset_right = 120.0
+offset_bottom = 14.0
+tooltip_text = "Click here to go to your Terrarium"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+
+[node name="minigamecontrol" type="Control" parent="Panel"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -112.0
+offset_top = 7.0
+offset_right = -73.0
+offset_bottom = 44.0
+tooltip_text = "Click here to play Mini Games"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+
+[node name="minigame" type="Area2D" parent="Panel"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/minigame"]
+position = Vector2(-92.4444, 26.3414)
+shape = SubResource("RectangleShape2D_fxy4o")
+
+[node name="door" type="Area2D" parent="Panel"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/door"]
+position = Vector2(-16, -3.51219)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2f4t2")
+
+[node name="terrarium" type="Area2D" parent="Panel"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/terrarium"]
+position = Vector2(77.3333, -22.561)
+shape = SubResource("RectangleShape2D_6ihn4")
+
+[connection signal="input_event" from="Panel/minigame" to="." method="_on_minigame_input_event"]
+[connection signal="input_event" from="Panel/door" to="." method="_on_door_input_event"]
+[connection signal="mouse_entered" from="Panel/door" to="." method="_on_door_mouse_entered"]
+[connection signal="input_event" from="Panel/terrarium" to="." method="_on_terrarium_input_event"]

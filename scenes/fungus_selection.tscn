@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=3 uid="uid://ba4bedfq88oxa"]
+
+[ext_resource type="Script" path="res://scripts/fungus_selection.gd" id="1_bqfm2"]
+[ext_resource type="Texture2D" uid="uid://ch0gprprcm6i7" path="res://images/backgrounds/Green.png" id="2_smm6b"]
+[ext_resource type="Texture2D" uid="uid://codk2mv7tgt5a" path="res://images/Cool Text - Choose a Fungus 468348466068145.png" id="3_bjns8"]
+[ext_resource type="Texture2D" uid="uid://c8ll6hemgwhu0" path="res://images/characters/enoki_mushroom.png" id="4_qhteh"]
+[ext_resource type="Texture2D" uid="uid://djqwrwklbbmd8" path="res://images/characters/red_mushroom.png" id="5_eqtcq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rvs3s"]
+texture = ExtResource("2_smm6b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nu1f2"]
+texture = ExtResource("3_bjns8")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkqeh"]
+atlas = ExtResource("4_qhteh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubynp"]
+atlas = ExtResource("5_eqtcq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lk0h3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkqeh")
+}],
+"loop": true,
+"name": &"enoki",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubynp")
+}],
+"loop": true,
+"name": &"red_mushroom",
+"speed": 5.0
+}]
+
+[node name="FungusSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_bqfm2")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 645.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rvs3s")
+
+[node name="Banner" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 6.0
+offset_right = 1089.0
+offset_bottom = 187.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_nu1f2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 426.0
+offset_top = 264.0
+offset_right = 714.0
+offset_bottom = 395.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Left" type="Button" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Previous"
+
+[node name="CharacterHolder" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+stretch_mode = 3
+
+[node name="Right" type="Button" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Next"
+
+[node name="Confirm" type="Button" parent="."]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 512.0
+offset_right = 925.0
+offset_bottom = 549.0
+text = "Confirm Choice"
+
+[node name="Main Menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 512.0
+offset_right = 352.0
+offset_bottom = 549.0
+text = "Back To Main Menu"
+
+[node name="FungusSelect" type="AnimatedSprite2D" parent="."]
+position = Vector2(568, 328)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_lk0h3")
+animation = &"enoki"
+
+[node name="Previous" type="Button" parent="."]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 312.0
+offset_right = 515.0
+offset_bottom = 343.0
+text = "Previous"
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 312.0
+offset_right = 699.0
+offset_bottom = 343.0
+text = "Next"
+
+[connection signal="pressed" from="HBoxContainer/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="HBoxContainer/Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

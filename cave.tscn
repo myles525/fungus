@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://cee7r72iyxwh3"]
+
+[ext_resource type="Texture2D" uid="uid://dtid5pejk2ga0" path="res://Images/backgrounds/cave_map.png" id="1_r5apq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4j2pg"]
+texture = ExtResource("1_r5apq")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1153.0
+offset_bottom = 647.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4j2pg")
+
+[node name="walls" type="Area2D" parent="Panel"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Panel/walls"]
+polygon = PackedVector2Array(276, 44, 192, 54, 181, 59, 147, 70, 98, 101, 80, 122, 75, 151, 54, 196, 45, 307, 37, 318, 37, 403, 34, 408, 33, 521, 41, 550, 56, 580, 97, 607, 112, 612, 134, 613, 147, 604, 159, 605, 181, 572, 184, 541, 161, 464, 163, 446, 190, 376, 210, 354, 240, 354, 261, 370, 280, 420, 286, 462, 298, 501, 310, 531, 332, 552, 366, 556, 422, 559, 439, 553, 463, 555, 470, 564, 475, 581, 475, 623, 481, 627, 478, 643, 479, 652, -9, 653, -15, -33, 277, -28)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Panel/walls"]
+polygon = PackedVector2Array(271, 42, 354, 53, 384, 66, 414, 67, 446, 113, 454, 181, 456, 260, 450, 290, 450, 334, 460, 341, 455, 366, 469, 431, 481, 464, 517, 485, 550, 479, 583, 452, 591, 351, 597, 327, 622, 304, 633, 299, 666, 299, 704, 266, 703, 233, 678, 214, 651, 213, 646, 218, 618, 218, 616, 222, 605, 223, 599, 214, 551, 204, 535, 192, 514, 154, 503, 115, 504, 97, 523, 79, 585, 70, 623, 67, 676, 63, 769, 63, 794, 69, 816, 90, 829, 101, 841, 145, 840, 182, 837, 197, 865, 230, 887, 237, 912, 229, 918, 196, 916, 123, 911, 71, 922, 52, 947, 43, 995, 42, 1062, 76, 1103, 136, 1101, 178, 1101, 328, 1118, 450, 1109, 482, 1094, 503, 1083, 513, 1022, 538, 1021, 557, 1005, 582, 980, 591, 937, 589, 907, 600, 836, 599, 817, 592, 794, 572, 789, 527, 803, 490, 803, 440, 792, 390, 776, 376, 742, 367, 718, 402, 714, 419, 712, 530, 712, 538, 693, 553, 660, 561, 619, 565, 613, 587, 618, 655, 1170, 661, 1160, -21, 263, -12, 271, 38)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Panel/walls"]
+polygon = PackedVector2Array(150, 172, 170, 137, 186, 123, 224, 118, 271, 120, 308, 131, 326, 154, 330, 171, 326, 192, 314, 205, 309, 222, 301, 228, 282, 226, 264, 218, 230, 217, 225, 223, 194, 242, 168, 248, 149, 247, 139, 234, 138, 190)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Panel/walls"]
+polygon = PackedVector2Array(926, 353, 900, 353, 891, 367, 893, 396, 909, 419, 907, 433, 898, 440, 898, 474, 916, 479, 934, 484, 967, 481, 999, 470, 1006, 443, 989, 409, 971, 387, 956, 382, 930, 353)
+
+[node name="dirt piles" type="Area2D" parent="Panel"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Panel/dirt piles"]
+polygon = PackedVector2Array(362, 282, 342, 284, 324, 303, 323, 319, 344, 323, 377, 319)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Panel/dirt piles"]
+polygon = PackedVector2Array(172, 121, 146, 126, 121, 117, 126, 103, 140, 84, 160, 83, 170, 117)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Panel/dirt piles"]
+polygon = PackedVector2Array(128, 526, 121, 497, 107, 486, 96, 490, 77, 511, 75, 524, 98, 534)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Panel/dirt piles"]
+polygon = PackedVector2Array(663, 154, 632, 159, 611, 148, 611, 139, 628, 116, 645, 115, 662, 133)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Panel/dirt piles"]
+position = Vector2(1, 2)
+polygon = PackedVector2Array(1030, 182, 1006, 191, 995, 191, 977, 174, 993, 151, 1002, 143, 1018, 146, 1034, 172)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Panel/dirt piles"]
+polygon = PackedVector2Array(667, 425, 647, 426, 632, 445, 629, 457, 650, 469, 684, 461)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Panel/dirt piles"]
+polygon = PackedVector2Array(879, 511, 879, 511, 860, 510, 841, 532, 841, 548, 861, 556, 896, 546)

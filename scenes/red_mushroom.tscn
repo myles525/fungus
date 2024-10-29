@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://djqwrwklbbmd8" path="res://images/characters/red_mushroom.png" id="1_55l6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sr1gw"]
-size = Vector2(106, 138)
+size = Vector2(61, 67)
 
 [node name="red_mushroom" type="Control"]
 layout_mode = 3
@@ -11,10 +11,11 @@ anchors_preset = 0
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_sr1gw")
-
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(3.8147e-06, 3.8147e-06)
-scale = Vector2(6.5, 8.5)
+position = Vector2(-9.53674e-07, -1.90735e-06)
+scale = Vector2(3.728, 4.125)
 texture = ExtResource("1_55l6x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_sr1gw")

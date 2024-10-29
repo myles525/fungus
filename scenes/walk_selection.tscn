@@ -1,51 +1,92 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1gp5i7j813qr"]
+[gd_scene load_steps=9 format=3 uid="uid://d1gp5i7j813qr"]
 
 [ext_resource type="Script" path="res://scripts/walk_selection.gd" id="1_ya2lv"]
 [ext_resource type="Texture2D" uid="uid://dysqegj32i1w5" path="res://images/backgrounds/1000017286.png" id="2_f7rb0"]
+[ext_resource type="Texture2D" uid="uid://edo6k5s5hgqv" path="res://images/backgrounds/forest_map.png" id="3_452tm"]
+[ext_resource type="Texture2D" uid="uid://b1sp5bgg8078c" path="res://images/backgrounds/cave_map.png" id="4_0ssrk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxsmc"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_36f1e"]
+texture = ExtResource("3_452tm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jed7b"]
-size = Vector2(54.8331, 82.1917)
+size = Vector2(202.324, 264.84)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eih7p"]
+texture = ExtResource("4_0ssrk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ib8h5"]
+size = Vector2(304, 232)
 
 [node name="WalkSelection" type="Node2D"]
 script = ExtResource("1_ya2lv")
 
-[node name="Panel" type="Sprite2D" parent="."]
+[node name="Forest" type="Sprite2D" parent="."]
 position = Vector2(568, 296)
 scale = Vector2(1.463, 0.876)
 texture = ExtResource("2_f7rb0")
 
-[node name="forestpanel" type="Panel" parent="Panel"]
-offset_left = -208.0
-offset_top = -55.0
-offset_right = -153.0
-offset_bottom = 27.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_wxsmc")
+[node name="forestpanel" type="Panel" parent="Forest"]
+offset_left = -300.752
+offset_top = -146.119
+offset_right = -98.7519
+offset_bottom = 118.881
+theme_override_styles/panel = SubResource("StyleBoxTexture_36f1e")
 
-[node name="forestcontrol" type="Control" parent="Panel"]
+[node name="forestcontrol" type="Control" parent="Forest"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -208.0
-offset_top = -55.0
-offset_right = -153.0
-offset_bottom = 27.0
+offset_left = -301.0
+offset_top = -146.0
+offset_right = -98.0
+offset_bottom = 119.0
+tooltip_text = "Walk in the Forest"
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 
-[node name="forest" type="Area2D" parent="Panel"]
+[node name="forest" type="Area2D" parent="Forest"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/forest"]
-position = Vector2(-180.527, -13.6987)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Forest/forest"]
+position = Vector2(-199.59, -13.6986)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jed7b")
 
 [node name="CharacterHolder" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 544.0
+offset_left = 576.0
 offset_top = 264.0
-offset_right = 592.0
+offset_right = 624.0
 offset_bottom = 312.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[connection signal="input_event" from="Panel/forest" to="." method="_on_forest_input_event"]
+[node name="Cave" type="Sprite2D" parent="."]
+
+[node name="cavepanel" type="Panel" parent="Cave"]
+offset_left = 720.0
+offset_top = 168.0
+offset_right = 1024.0
+offset_bottom = 400.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_eih7p")
+
+[node name="cavecontrol" type="Control" parent="Cave"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 720.0
+offset_top = 168.0
+offset_right = 1024.0
+offset_bottom = 400.0
+tooltip_text = "Walk in the Cave"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+
+[node name="cave" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cave"]
+position = Vector2(872, 284)
+shape = SubResource("RectangleShape2D_ib8h5")
+
+[connection signal="input_event" from="Forest/forest" to="." method="_on_forest_input_event"]
+[connection signal="input_event" from="cave" to="." method="_on_cave_input_event"]

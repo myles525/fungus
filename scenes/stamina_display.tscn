@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo6rengpc1f81"]
+
+[ext_resource type="Script" path="res://scripts/StaminaDisplay.gd" id="1_ysa2d"]
+
+[node name="StaminaDisplay" type="CanvasLayer"]
+script = ExtResource("1_ysa2d")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 104.0
+offset_bottom = 48.0
+text = "test"

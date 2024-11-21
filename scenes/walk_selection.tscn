@@ -47,7 +47,6 @@ mouse_default_cursor_shape = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Forest/forest"]
 position = Vector2(-199.59, -13.6986)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jed7b")
 
 [node name="CharacterHolder" type="Control" parent="."]
@@ -88,5 +87,11 @@ mouse_default_cursor_shape = 2
 position = Vector2(872, 284)
 shape = SubResource("RectangleShape2D_ib8h5")
 
+[node name="Button" type="Button" parent="."]
+offset_right = 104.0
+offset_bottom = 48.0
+text = "Go Home"
+
 [connection signal="input_event" from="Forest/forest" to="." method="_on_forest_input_event"]
 [connection signal="input_event" from="cave" to="." method="_on_cave_input_event"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

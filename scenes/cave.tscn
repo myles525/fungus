@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cee7r72iyxwh3"]
+[gd_scene load_steps=6 format=3 uid="uid://cee7r72iyxwh3"]
 
-[ext_resource type="Texture2D" uid="uid://dtid5pejk2ga0" path="res://Images/backgrounds/cave_map.png" id="1_r5apq"]
+[ext_resource type="Script" path="res://scripts/cave.gd" id="1_sqdoq"]
+[ext_resource type="Texture2D" uid="uid://bmmly3lcexdt0" path="res://images/backgrounds/caveV2.png" id="2_sjefw"]
+[ext_resource type="PackedScene" uid="uid://cvyewo7feohin" path="res://scenes/grid_overlay.tscn" id="3_i3vox"]
+[ext_resource type="PackedScene" uid="uid://cwwy7enxfm7rg" path="res://scenes/dirt_pile.tscn" id="4_xwojo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4j2pg"]
-texture = ExtResource("1_r5apq")
+texture = ExtResource("2_sjefw")
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_sqdoq")
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 1153.0
@@ -26,26 +30,44 @@ polygon = PackedVector2Array(150, 172, 170, 137, 186, 123, 224, 118, 271, 120, 3
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Panel/walls"]
 polygon = PackedVector2Array(926, 353, 900, 353, 891, 367, 893, 396, 909, 419, 907, 433, 898, 440, 898, 474, 916, 479, 934, 484, 967, 481, 999, 470, 1006, 443, 989, 409, 971, 387, 956, 382, 930, 353)
 
-[node name="dirt piles" type="Area2D" parent="Panel"]
+[node name="GridOverlay" parent="." instance=ExtResource("3_i3vox")]
+offset_right = 1152.0
+offset_bottom = 648.0
+grid_size = 80
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Panel/dirt piles"]
-polygon = PackedVector2Array(362, 282, 342, 284, 324, 303, 323, 319, 344, 323, 377, 319)
+[node name="dirt_pile" parent="." instance=ExtResource("4_xwojo")]
+position = Vector2(96, 504)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Panel/dirt piles"]
-polygon = PackedVector2Array(172, 121, 146, 126, 121, 117, 126, 103, 140, 84, 160, 83, 170, 117)
+[node name="dirt_pile2" parent="." instance=ExtResource("4_xwojo")]
+position = Vector2(104, 344)
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Panel/dirt piles"]
-polygon = PackedVector2Array(128, 526, 121, 497, 107, 486, 96, 490, 77, 511, 75, 524, 98, 534)
+[node name="dirt_pile3" parent="." instance=ExtResource("4_xwojo")]
+position = Vector2(344, 344)
 
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Panel/dirt piles"]
-polygon = PackedVector2Array(663, 154, 632, 159, 611, 148, 611, 139, 628, 116, 645, 115, 662, 133)
+[node name="dirt_pile4" parent="." instance=ExtResource("4_xwojo")]
+position = Vector2(584, 112)
 
-[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Panel/dirt piles"]
-position = Vector2(1, 2)
-polygon = PackedVector2Array(1030, 182, 1006, 191, 995, 191, 977, 174, 993, 151, 1002, 143, 1018, 146, 1034, 172)
+[node name="dirt_pile5" parent="." instance=ExtResource("4_xwojo")]
+position = Vector2(984, 104)
 
-[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Panel/dirt piles"]
-polygon = PackedVector2Array(667, 425, 647, 426, 632, 445, 629, 457, 650, 469, 684, 461)
+[node name="dirt_pile6" parent="." instance=ExtResource("4_xwojo")]
+position = Vector2(656, 336)
 
-[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Panel/dirt piles"]
-polygon = PackedVector2Array(879, 511, 879, 511, 860, 510, 841, 532, 841, 548, 861, 556, 896, 546)
+[node name="dirt_pile7" parent="." instance=ExtResource("4_xwojo")]
+position = Vector2(824, 504)
+
+[node name="CharacterHolder" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 520.0
+offset_top = 600.0
+offset_right = 560.0
+offset_bottom = 648.0
+
+[node name="backButton" type="Button" parent="."]
+offset_left = 1072.0
+offset_right = 1153.0
+offset_bottom = 40.0
+text = "Go Home"
+
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

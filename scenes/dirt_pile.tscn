@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwwy7enxfm7rg"]
+
+[ext_resource type="Texture2D" uid="uid://bisfcun2rf1xu" path="res://images/backgrounds/dirt_pile.png" id="1_1iyw7"]
+[ext_resource type="Script" path="res://scripts/dirtpile.gd" id="2_64mly"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5bqhx"]
+texture = ExtResource("1_1iyw7")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1e380"]
+size = Vector2(32, 32)
+
+[node name="dirt_pile" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_5bqhx")
+
+[node name="dirtpile" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("2_64mly")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dirtpile"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_1e380")
+
+[connection signal="body_entered" from="dirtpile" to="dirtpile" method="_on_body_entered"]

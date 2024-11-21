@@ -16,7 +16,7 @@ func _on_door_mouse_entered():
 	pass
 	
 
-
+@export var save_file_path := "user://save_game.json"
 
 func _on_door_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -43,11 +43,30 @@ func _on_minigame_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			print("Area2D clicked!")
-			get_tree().change_scene_to_file("res://scenes/menu.tscn")
+			get_tree().change_scene_to_file("res://scenes/minigame.tscn")
 
 
 func _on_terrarium_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			print("Area2D clicked!")
-			get_tree().change_scene_to_file("res://scenes/menu.tscn")
+			get_tree().change_scene_to_file("res://scenes/terrarium.tscn")
+
+
+func _on_save_game_pressed():
+
+	var save_data = {
+		"total_money": Global.total_money,
+		"food": Global.food,
+		"stamina": Global.max_stamina,
+		"current_level": Global.current_level
+		#"current_mushroom": Global.PlayerSelect
+	}
+
+	var file = FileAccess.open(save_file_path, FileAccess.WRITE)
+	if file:
+		file.store_string(JSON.stringify(save_data))
+		file.close()
+		print("Game saved successfully!")
+	else:
+		print("Failed to save the game.")
